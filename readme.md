@@ -17,7 +17,9 @@ Inkjet printers that sit idle for long periods often suffer from **dried print h
 
 ## 🖨️ Tips for Inkjet Owners
 
-- If your prints are too vivid or use too much ink, lower the background saturation by setting `BG_SATURATION=0.5` (or even `0.3`) to mute the image while keeping the comic and text clear. Personally I prefer to bump it up to `1.0`.
+If your prints are too vivid or use too much ink, lower the background saturation by setting `BG_SATURATION=0.5` or lower to mute the image while keeping the comic and text clear.
+
+Personally I prefer to bump it up to `1.0`.
 
 ---
 
@@ -52,7 +54,7 @@ To keep your archive between restarts, mount a host folder:
 
 The print job runs via **cron**.
 By default it’s set to **Mondays at 09:30 (UTC)**.
-You can change this with the `TZ` and `CRON` variable, using standard cron syntax:
+You can change this with the `TZ` and `CRON` variables, using standard cron syntax:
 
 ```
 -e TZ=America/New_York
