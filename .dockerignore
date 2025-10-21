@@ -11,6 +11,7 @@ __pycache__/
 # Ignore runtime data
 history/
 data/
+app/
 cron.log
 
 # Ignore version control

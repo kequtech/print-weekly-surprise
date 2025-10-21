@@ -21,28 +21,26 @@ RUN apt-get update -qq && \
         cron cups-client fonts-dejavu-core && \
     rm -rf /var/lib/apt/lists/*
 
-# --- Working directory ---
-WORKDIR /data
-COPY print-weekly-surprise.py run.sh scheduler.sh ./
-RUN chmod +x /data/*.sh
-
-# --- Data persistence ---
-VOLUME ["/data"]
+# Copy all scripts into /app (code) and make them executable
+COPY scheduler.sh run.sh print-weekly-surprise.py /app/
+RUN chmod +x /app/*.sh
 
 # --- Python dependencies ---
 RUN python -m pip install --no-cache-dir pillow
 
-# --- Output directory ---
-RUN mkdir -p /data/history
+# --- Working directory for user data + persistence ---
+WORKDIR /data
+VOLUME ["/data"]
 
-# --- Metadata (visible in Ugreen & Docker Hub) ---
+# --- Metadata (for Ugreen / registries) ---
 LABEL org.opencontainers.image.title="Print Weekly Surprise" \
       org.opencontainers.image.description="Print a random comic, image, and quote once per week using a CUPS printer. Prevent print head clogging." \
-      org.opencontainers.image.version="1.1.3" \
+      org.opencontainers.image.version="1.1.4" \
       org.opencontainers.image.authors="Nathan Lunde-Berry <contact@kequtech.com>" \
       org.opencontainers.image.url="https://hub.docker.com/r/kequc/print-weekly-surprise" \
       org.opencontainers.image.source="https://github.com/kequtech/print-weekly-surprise" \
       org.opencontainers.image.licenses="MIT" \
       org.opencontainers.image.environment="TZ=Etc/UTC,CRON=30 9 * * MON,PRINT=1,PAPER=A4,QUEUE=epson-et1810,CUPS_HOST=127.0.0.1:631,BG_SATURATION=0.7"
 
-ENTRYPOINT ["/bin/sh", "/data/scheduler.sh"]
+# Start the scheduler (scripts live in /app; /data is the mount)
+ENTRYPOINT ["/bin/sh", "/app/scheduler.sh"]
