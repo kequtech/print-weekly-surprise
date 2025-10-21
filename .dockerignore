@@ -1,0 +1,24 @@
+# Ignore compiled Python files
+__pycache__/
+*.pyc
+
+# Ignore logs and archives
+*.log
+*.jpg
+*.png
+*.tmp
+
+# Ignore runtime data
+history/
+data/
+cron.log
+
+# Ignore version control
+.git
+.gitignore
+
+# Ignore local dev/editor configs
+*.swp
+*.DS_Store
+.vscode/
+.idea/
