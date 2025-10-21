@@ -1,6 +1,6 @@
 # 🖨️ Print Weekly Surprise
 
-Print a random **comic**, **image**, and **quote** once per week through your CUPS printer. Keeping **inkjet printer heads from drying or clogging** when it isn’t used regularly for once a week "printer exercise".
+Print a random **comic**, **image**, and **quote** once per week. Keeping **inkjet printer heads from drying or clogging** when it isn’t used regularly for once a week "printer exercise".
 
 ---
 
@@ -17,7 +17,7 @@ Inkjet printers that sit idle for long periods often suffer from **dried print h
 
 ## 🖨️ Tips for Inkjet Owners
 
-- If your prints are too vivid or use too much ink, lower the background saturation by setting `BG_SATURATION=0.5` (or even `0.3`) to mute the image while keeping the comic and text clear.
+- If your prints are too vivid or use too much ink, lower the background saturation by setting `BG_SATURATION=0.5` (or even `0.3`) to mute the image while keeping the comic and text clear. Personally I prefer to bump it up to `1.0`.
 
 ---
 
@@ -52,10 +52,11 @@ To keep your archive between restarts, mount a host folder:
 
 The print job runs via **cron**.
 By default it’s set to **Mondays at 09:30 (UTC)**.
-You can change this with the `CRON` variable, using standard cron syntax:
+You can change this with the `TZ` and `CRON` variable, using standard cron syntax:
 
 ```
--e CRON="0 12 * * FRI"  # Fridays at 12:00 UTC
+-e TZ=America/New_York
+-e CRON="0 12 * * FRI"  # Fridays at 12:00
 ```
 
 ---
