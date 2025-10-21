@@ -1,6 +1,6 @@
 # kequc/print-weekly-surprise
-# Automatically prints a random comic, image, and quote once per week through your CUPS printer.
-# Great for keeping your inkjet printer active and preventing print head clogs.
+# Print a random comic, image, and quote once per week using a CUPS printer.
+# Prevent print head clogging.
 
 FROM python:3.12-slim
 
@@ -34,7 +34,7 @@ RUN mkdir -p /data/history
 
 # --- Metadata (visible in Ugreen & Docker Hub) ---
 LABEL org.opencontainers.image.title="Print Weekly Surprise" \
-      org.opencontainers.image.description="Print a random comic, image, and quote once per week using a CUPS printer — prevent print head clogging." \
+      org.opencontainers.image.description="Print a random comic, image, and quote once per week using a CUPS printer. Prevent print head clogging." \
       org.opencontainers.image.version="1.1.0" \
       org.opencontainers.image.authors="Nathan Lunde-Berry <contact@kequtech.com>" \
       org.opencontainers.image.url="https://hub.docker.com/r/kequc/print-weekly-surprise" \

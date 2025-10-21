@@ -1,12 +1,12 @@
 # 🖨️ Print Weekly Surprise
 
-Automatically prints a random **comic**, **image**, and **quote** once per week through your CUPS printer. For keeping your **inkjet printer heads from drying or clogging** when it isn’t used regularly. A self-contained “printer exercise” container that surprises you every week.
+Print a random **comic**, **image**, and **quote** once per week through your CUPS printer. For keeping your **inkjet printer heads from drying or clogging** when it isn’t used regularly. A “printer exercise” container that surprises you every week.
 
 ---
 
 ## 💡 Why Use This?
 
-Inkjet printers that sit unused for long periods often suffer from **dried print heads** and **ink flow problems**. It suddenly and surprisingly prints something once a week. Combining an XKCD comic, a random photo, and a short motivational quote so your printer stays happy.
+Inkjet printers that sit unused for long periods often suffer from **dried print heads** and **ink flow problems**. This suddenly and surprisingly prints something once a week. Combining an XKCD comic, a random photo, and a short motivational quote so your printer stays happy.
 
 ---
 
