@@ -26,6 +26,9 @@ WORKDIR /data
 COPY print-weekly-surprise.py run.sh scheduler.sh ./
 RUN chmod +x /data/*.sh
 
+# --- Data persistence ---
+VOLUME ["/data"]
+
 # --- Python dependencies ---
 RUN python -m pip install --no-cache-dir pillow
 
@@ -35,13 +38,11 @@ RUN mkdir -p /data/history
 # --- Metadata (visible in Ugreen & Docker Hub) ---
 LABEL org.opencontainers.image.title="Print Weekly Surprise" \
       org.opencontainers.image.description="Print a random comic, image, and quote once per week using a CUPS printer. Prevent print head clogging." \
-      org.opencontainers.image.version="1.1.2" \
+      org.opencontainers.image.version="1.1.3" \
       org.opencontainers.image.authors="Nathan Lunde-Berry <contact@kequtech.com>" \
       org.opencontainers.image.url="https://hub.docker.com/r/kequc/print-weekly-surprise" \
       org.opencontainers.image.source="https://github.com/kequtech/print-weekly-surprise" \
       org.opencontainers.image.licenses="MIT" \
-      org.opencontainers.image.environment="TZ=Etc/UTC,CRON=30 9 * * MON,PRINT=1,PAPER=A4,QUEUE=epson-et1810,CUPS_HOST=127.0.0.1:631,BG_SATURATION=0.7" \
-      com.ugreen.env.description="User-configurable environment variables for scheduling and printer connection." \
-      com.docker.compose.restart="unless-stopped"
+      org.opencontainers.image.environment="TZ=Etc/UTC,CRON=30 9 * * MON,PRINT=1,PAPER=A4,QUEUE=epson-et1810,CUPS_HOST=127.0.0.1:631,BG_SATURATION=0.7"
 
 ENTRYPOINT ["/bin/sh", "/data/scheduler.sh"]

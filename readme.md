@@ -31,6 +31,12 @@ When creating the container:
 
 ---
 
+## ☕️ CUPS
+
+Create a CUPS server along side this container. It should have a printer queue already set up and ready to use. I chose `anujdatar/cups` because it seemed straight forward. Use their web interface to set up the printer.
+
+---
+
 ## 📁 Data Persistence
 
 Each generated print is saved in `/data/history/` inside the container.
