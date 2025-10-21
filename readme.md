@@ -85,10 +85,3 @@ docker run -d \
 | `CUPS_HOST`     | `127.0.0.1:631` | Your CUPS server address           |
 | `QUEUE`         | `epson-et1810`  | CUPS printer queue name            |
 | `BG_SATURATION` | `0.7`           | 0–1 multiplier to reduce ink usage |
-
----
-
-**Maintainer:** [kequc](https://hub.docker.com/u/kequc)
-**Source:** [github.com/kequtech/print-weekly-surprise](https://github.com/kequtech/print-weekly-surprise)
-
-```
